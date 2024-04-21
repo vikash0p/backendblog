@@ -61,7 +61,6 @@ export const Login = async (req, res) => {
             path:'/',
             expires:new Date(Date.now()+ 24*60*60*1000) ,
             httpOnly: true,
-            sameSite: "lax",
         })
 
         // Send a successful response
