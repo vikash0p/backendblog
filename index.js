@@ -17,7 +17,12 @@ const port = process.env.PORT || 5500;
 MongodbConnection()
     .then(() => {
         // MongoDB connection successful, set up middleware and routes
-        app.use(cors());
+        app.use(cors({
+            origin: 'https://backendblog-eta.vercel.app',
+            credentials: true,
+            methods: ['GET', 'POST', 'PUT', 'DELETE'],
+
+        }));
         app.use(express.json());
         app.use(express.urlencoded({ extended: true }));
         app.use(morgan('dev'));
