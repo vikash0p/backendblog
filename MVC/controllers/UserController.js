@@ -82,7 +82,7 @@ export const VerifyToken = async (req, res, next) => {
     const token = req.cookies.token;
 
     try {
-        const user = await jwt.verify(String(token), process.env.JWT_SECRET);
+        const user =  jwt.verify(String(token), process.env.JWT_SECRET);
         console.log(user);
         req.id = user.id;
         next();
